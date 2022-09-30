@@ -121,17 +121,17 @@ class AutoDiff:
 
     def differentiate(self, x=None):
         expr = ""
-        reversed_nodes = self.nodes
+        nodes = self.nodes
 
-        for i, derivative_node in enumerate(reversed_nodes):
+        for i, derivative_node in enumerate(nodes):
             expr += self._update_expr(derivative_node, derivative=True, field="string")
-            for no_derivative_node in reversed_nodes[i+1:]:
+            for no_derivative_node in nodes[i+1:]:
                 expr += self._update_expr(no_derivative_node, derivative=False, field="string")
 
-            nb_funcs = len([n for n in reversed_nodes[i+1:] \
+            nb_funcs = len([n for n in nodes[i+1:] \
                 if isinstance(derivative_node, FuncNode)])
             expr += ')' * nb_funcs
-            expr += " * " if i != len(reversed_nodes) - 1 else ""
+            expr += " * " if i != len(nodes) - 1 else ""
         return expr
 
     def _update_expr(self, node, derivative: bool, field: str):
