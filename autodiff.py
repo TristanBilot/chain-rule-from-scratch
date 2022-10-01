@@ -214,8 +214,3 @@ class AutoDiff:
         if isinstance(node, FuncNode):
             expr += "("
         return expr
-
-# exp = "sin(exp(sin(x^9)))"
-exp = "cos(2x)"
-diff = AutoDiff(exp)
-diff.differentiate(x=2)
