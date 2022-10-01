@@ -4,7 +4,7 @@ Simple automatic differentiation engine to differentiate simple composite functi
 
 Only `cos`, `sin`, `exp` and `pow` operations are implemented but additional ones could be easily added but require some parsing boilerplate code to develop.
 
-## Example
+## Derivative computation
 
 ```python
 exp = "sin(exp(sin(5x^9)))"
@@ -12,4 +12,14 @@ derivative = AutoDiff(exp).differentiate()
 
 derivative
 # >>> "cos(exp(sin(5x^9))) * exp(sin(5x^9)) * cos(5x^9) * 45x^8"
+```
+
+## Derivative inference
+
+```python
+exp = "cos(3x^2)"
+derivative = AutoDiff(exp).differentiate(x=5)
+
+derivative
+# >>> 11.6334490623
 ```
