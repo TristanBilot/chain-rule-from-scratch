@@ -157,7 +157,7 @@ class Parser:
         return ExprNode(buf)
 
 
-class AutoDiff:
+class Expression:
     def __init__(self, expr):
         self.parser = Parser(expr)
         self.nodes = self.parser.parse()
