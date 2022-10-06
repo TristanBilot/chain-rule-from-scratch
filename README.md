@@ -1,4 +1,4 @@
-# Derivative engine from scracth
+# Chain rule from scracth
 
 Simple engine to compute composite functions derivatives using the chain rule. The aim of this repo is to understand easily how chain rule works and how derivatives are computed automatically using a computation graph. This is a first step towards automtic differentiation.
 
